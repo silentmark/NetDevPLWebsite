@@ -1,0 +1,10 @@
+* text=auto
+
+*.cs     diff=csharp
+
+*.sln       merge=binary
+*.csproj    merge=binary
+*.jpg   binary
+*.png   binary
+*.gif   binary
+
