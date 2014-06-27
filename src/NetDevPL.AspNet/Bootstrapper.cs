@@ -38,7 +38,7 @@ namespace NetDevPL.AspNet
         {
             // Pre-configure the kernel
             kernel.Bind<ILogFactory>().To<LogFactory>().InSingletonScope();
-            kernel.Bind<ILogger>().To<NLogLogger>();            // All ILoggers are disposed when parent objects are GC'd
+            kernel.Bind<ILogger>().To<NLogLogger>().InTransientScope();
 
             // Load modules
             // (!) Assembly name MUST NOT start with "Nancy"
