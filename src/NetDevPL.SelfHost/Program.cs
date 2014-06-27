@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Nancy.Hosting.Self;
+using System;
 
 namespace NetDevPL.SelfHost
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            using (var host = new NancyHost(new Uri("http://localhost:80")))
+            {
+                host.Start();
+                Console.ReadLine();
+                host.Stop();
+            }
         }
     }
 }

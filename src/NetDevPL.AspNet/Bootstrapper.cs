@@ -8,6 +8,16 @@ using Ninject;
 using System;
 using System.Collections.Generic;
 
+#if SELFHOST
+
+using Nancy.Hosting.Self;
+
+#else
+
+using Nancy.Hosting.Aspnet;
+
+#endif
+
 namespace NetDevPL.AspNet
 {
     public class Bootstrapper : NinjectNancyBootstrapper
@@ -57,6 +67,18 @@ namespace NetDevPL.AspNet
         protected override IEnumerable<Type> ViewEngines
         {
             get { yield return typeof(RazorViewEngine); }
+        }
+
+        protected override IRootPathProvider RootPathProvider
+        {
+            get
+            {
+#if SELFHOST
+                return new FileSystemRootPathProvider();
+#else
+                return new AspNetRootPathProvider();
+#endif
+            }
         }
     }
 }
