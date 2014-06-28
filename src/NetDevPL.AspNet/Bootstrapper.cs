@@ -6,6 +6,7 @@ using Nancy.ViewEngines.Razor;
 using NetDevPL.Logging;
 using Ninject;
 using System;
+using NetDevPL.NancyFx;
 using System.Collections.Generic;
 
 #if SELFHOST
@@ -22,6 +23,31 @@ namespace NetDevPL.AspNet
 {
     public class Bootstrapper : NinjectNancyBootstrapper
     {
+        protected override NancyInternalConfiguration InternalConfiguration
+        {
+            get
+            {
+                return NancyInternalConfiguration.WithOverrides(nic => nic.ViewLocationProvider = typeof(ResourceViewLocationProvider));
+            }
+        }
+
+        protected override IRootPathProvider RootPathProvider
+        {
+            get
+            {
+#if SELFHOST
+                return new FileSystemRootPathProvider();
+#else
+                return new AspNetRootPathProvider();
+#endif
+            }
+        }
+
+        protected override IEnumerable<Type> ViewEngines
+        {
+            get { yield return typeof(RazorViewEngine); }
+        }
+
         protected override void ApplicationStartup(IKernel container, IPipelines pipelines)
         {
             // No registrations should be performed in here, however you may
@@ -39,46 +65,30 @@ namespace NetDevPL.AspNet
             // Pre-configure the kernel
             kernel.Bind<ILogFactory>().To<LogFactory>().InSingletonScope();
             kernel.Bind<ILogger>().To<NLogLogger>().InTransientScope();
+            kernel.Bind<IModuleConventions>().To<ModuleConventions>().InSingletonScope();
 
             // Load modules
             // (!) Assembly name MUST NOT start with "Nancy"
             kernel.Load("NetDevPL.Modules.*.dll");
         }
 
-        //protected override void ConfigureRequestContainer(IKernel container, NancyContext context)
-        //{
-        //    // Perform registrations that should have a request lifetime
-        //}
-
-        //protected override void RequestStartup(IKernel container, IPipelines pipelines, NancyContext context)
-        //{
-        //    // No registrations should be performed in here, however you may
-        //    // resolve things that are needed during request startup.
-        //}
-
-        protected override NancyInternalConfiguration InternalConfiguration
+        protected override void ConfigureConventions(Nancy.Conventions.NancyConventions nancyConventions)
         {
-            get
-            {
-                return NancyInternalConfiguration.WithOverrides(nic => nic.ViewLocationProvider = typeof(ResourceViewLocationProvider));
-            }
+            base.ConfigureConventions(nancyConventions);
+
+            var conventions = ApplicationContainer.Get<IModuleConventions>();
+            conventions.ConfigureConventions(nancyConventions);
         }
 
-        protected override IEnumerable<Type> ViewEngines
+        protected override void ConfigureRequestContainer(IKernel container, NancyContext context)
         {
-            get { yield return typeof(RazorViewEngine); }
+            // Perform registrations that should have a request lifetime
         }
 
-        protected override IRootPathProvider RootPathProvider
+        protected override void RequestStartup(IKernel container, IPipelines pipelines, NancyContext context)
         {
-            get
-            {
-#if SELFHOST
-                return new FileSystemRootPathProvider();
-#else
-                return new AspNetRootPathProvider();
-#endif
-            }
+            // No registrations should be performed in here, however you may
+            // resolve things that are needed during request startup.
         }
     }
 }
