@@ -75,10 +75,10 @@ namespace NetDevPL.AspNet
 
         protected override void ConfigureConventions(Nancy.Conventions.NancyConventions nancyConventions)
         {
-            base.ConfigureConventions(nancyConventions);
-
             var conventions = ApplicationContainer.Get<IModuleConventions>();
             conventions.ConfigureConventions(nancyConventions);
+
+            base.ConfigureConventions(nancyConventions);
         }
 
         protected override void ConfigureRequestContainer(IKernel container, NancyContext context)
