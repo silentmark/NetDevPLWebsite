@@ -2,6 +2,7 @@
 
 namespace NetDevPL
 {
+    // cr:mmisztal1980
     public abstract class Disposable : IDisposable
     {
         protected bool IsDisposed;
