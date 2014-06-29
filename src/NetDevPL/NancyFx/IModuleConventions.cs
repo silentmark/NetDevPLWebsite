@@ -10,6 +10,8 @@ namespace NetDevPL.NancyFx
     {
         IDictionary<string, ICollection<Func<NancyContext, string, Response>>> StaticContentsConvetions { get; }
 
+        void AddStaticContentConvention(string moduleKey, Func<NancyContext, string, Response> convention);
+
         void ConfigureConventions(NancyConventions nancyConventions);
     }
 }

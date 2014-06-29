@@ -3,6 +3,7 @@ using Nancy.Conventions;
 using NetDevPL.Logging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace NetDevPL.NancyFx
 {
@@ -21,6 +22,16 @@ namespace NetDevPL.NancyFx
         {
             _logger = logFactory.CreateLogger("ModuleConventions");
             StaticContentsConvetions = new Dictionary<string, ICollection<Func<NancyContext, string, Response>>>();
+        }
+
+        public void AddStaticContentConvention(string moduleKey, Func<NancyContext, string, Response> convention)
+        {
+            if (!StaticContentsConvetions.ContainsKey(moduleKey))
+            {
+                StaticContentsConvetions[moduleKey] = new Collection<Func<NancyContext, string, Response>>();
+            }
+
+            StaticContentsConvetions[moduleKey].Add(convention);
         }
 
         public IDictionary<string, ICollection<Func<NancyContext, string, Response>>> StaticContentsConvetions
