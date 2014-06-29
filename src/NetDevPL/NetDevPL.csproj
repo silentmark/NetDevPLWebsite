@@ -57,7 +57,7 @@
     <Compile Include="Logging\NLogLogger.cs" />
     <Compile Include="NancyFx\EmbeddedStaticContentConventionBuilder.cs" />
     <Compile Include="NancyFx\IModuleConventions.cs" />
-    <Compile Include="NancyFx\Module.cs" />
+    <Compile Include="NancyFx\ModuleBase.cs" />
     <Compile Include="NancyFx\ModuleConventions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
