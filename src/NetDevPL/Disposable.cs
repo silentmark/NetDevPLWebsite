@@ -26,6 +26,7 @@ namespace NetDevPL
             }
             catch
             {
+                // Dispose() must not throw
             }
             finally
             {
