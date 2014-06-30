@@ -1,6 +1,8 @@
 ﻿using Nancy.ViewEngines;
 using NetDevPL.Logging;
+using NetDevPL.Navigation;
 using Ninject;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace NetDevPL.Modules.Home
@@ -27,6 +29,13 @@ namespace NetDevPL.Modules.Home
 
             ResourceViewLocationProvider.RootNamespaces
                 .Add(this.GetType().Assembly, "NetDevPL.Modules.Home.Views");
+        }
+
+        private INavigationLink[] _navigationLinks;
+
+        public override IEnumerable<INavigationLink> NavigationLinks
+        {
+            get { return _navigationLinks ?? new INavigationLink[] { }; }
         }
     }
 }

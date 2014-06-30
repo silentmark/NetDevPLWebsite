@@ -1,4 +1,5 @@
-﻿@{
+﻿@using NetDevPL.Navigation
+@{
     //cr:mmisztal1980
 }
 <!DOCTYPE html>
@@ -8,7 +9,8 @@
 </head>
     <body>
         <div class="wrapper">
-            @RenderBody()  
+            @Html.Partial("_NavigationPartial", NavigationModel.Instance)
+            @RenderBody()
         </div>
         <footer>
             @Html.Partial("_FooterPartial")

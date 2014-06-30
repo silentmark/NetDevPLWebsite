@@ -2,10 +2,10 @@
 {
     public interface INavigationLink
     {
-        int Index { get; set; }
+        int Index { get; }
 
-        string Class { get; set; }
+        string Link { get; }
 
-        string Url { get; set; }
+        string CssClass { get; }
     }
 }

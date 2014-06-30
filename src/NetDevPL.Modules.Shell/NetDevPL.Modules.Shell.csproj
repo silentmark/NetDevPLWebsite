@@ -58,7 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Module.cs" />
-    <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +71,7 @@
     <EmbeddedResource Include="Views\_Layout.cshtml" />
     <EmbeddedResource Include="Views\_ViewStart.cshtml" />
     <EmbeddedResource Include="Views\_HeadPartial.cshtml" />
+    <EmbeddedResource Include="Views\_NavigationPartial.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>

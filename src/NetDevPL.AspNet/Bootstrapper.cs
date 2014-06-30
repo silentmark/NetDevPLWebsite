@@ -4,6 +4,7 @@ using Nancy.Bootstrappers.Ninject;
 using Nancy.ViewEngines;
 using Nancy.ViewEngines.Razor;
 using NetDevPL.Logging;
+using NetDevPL.Navigation;
 using Ninject;
 using System;
 using NetDevPL.NancyFx;
@@ -67,6 +68,7 @@ namespace NetDevPL.AspNet
             kernel.Bind<ILogFactory>().To<LogFactory>().InSingletonScope();
             kernel.Bind<ILogger>().To<NLogLogger>().InTransientScope();
             kernel.Bind<IModuleConventions>().To<ModuleConventions>().InSingletonScope();
+            kernel.Bind<INavigationModel>().To<NavigationModel>().InSingletonScope();
 
             // Load modules
             // (!) Assembly name MUST NOT start with "Nancy"

@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NetDevPL.Navigation
 {
-    public interface INavigationModel
+    public interface INavigationModel : IDisposable
     {
         IEnumerable<INavigationLink> Links { get; }
     }

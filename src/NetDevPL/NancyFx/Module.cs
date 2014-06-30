@@ -1,4 +1,6 @@
-﻿using Ninject.Modules;
+﻿using NetDevPL.Navigation;
+using Ninject.Modules;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace NetDevPL.NancyFx
@@ -9,5 +11,7 @@ namespace NetDevPL.NancyFx
         public abstract string Key { get; }
 
         public abstract Assembly DeclaringAssembly { get; }
+
+        public abstract IEnumerable<INavigationLink> NavigationLinks { get; }
     }
 }

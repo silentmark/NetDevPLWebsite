@@ -1,7 +1,10 @@
 ﻿using Nancy.ViewEngines;
 using NetDevPL.Logging;
 using NetDevPL.NancyFx;
+using NetDevPL.Navigation;
 using Ninject;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace NetDevPL.Modules.Shell
@@ -33,6 +36,12 @@ namespace NetDevPL.Modules.Shell
 
             ResourceViewLocationProvider.RootNamespaces
                 .Add(this.GetType().Assembly, "NetDevPL.Modules.Shell.Views");
+        }
+
+        // Shell doesn't contain any navigation links
+        public override IEnumerable<INavigationLink> NavigationLinks
+        {
+            get { return Enumerable.Empty<INavigationLink>(); }
         }
     }
 }
