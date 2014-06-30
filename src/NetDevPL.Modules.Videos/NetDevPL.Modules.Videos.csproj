@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06C6797D-844D-4F44-95EE-38CD29A11C1F}</ProjectGuid>
+    <ProjectGuid>{16289B43-17DB-407D-90F7-A483F8E1D07F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NetDevPL</RootNamespace>
-    <AssemblyName>NetDevPL</AssemblyName>
+    <RootNamespace>NetDevPL.Modules.Videos</RootNamespace>
+    <AssemblyName>NetDevPL.Modules.Videos</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,6 +33,9 @@
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.0.23.0\lib\net40\Nancy.dll</HintPath>
     </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor">
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.23.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
@@ -42,6 +45,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,25 +56,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Condition.cs" />
-    <Compile Include="Disposable.cs" />
-    <Compile Include="Logging\ILogFactory.cs" />
-    <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="Logging\LogFactory.cs" />
-    <Compile Include="Logging\NLogLogger.cs" />
-    <Compile Include="NancyFx\EmbeddedStaticContentConventionBuilder.cs" />
-    <Compile Include="NancyFx\IModuleConventions.cs" />
-    <Compile Include="NancyFx\ModuleBase.cs" />
-    <Compile Include="NancyFx\ModuleConventions.cs" />
-    <Compile Include="Navigation\INavigationLink.cs" />
-    <Compile Include="Navigation\INavigationModel.cs" />
-    <Compile Include="Navigation\NavigationModel.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="Modules\VideosModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NetDevPL\NetDevPL.csproj">
+      <Project>{06c6797d-844d-4f44-95ee-38cd29a11c1f}</Project>
+      <Name>NetDevPL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Views\Videos\Index.cshtml" />
+    <None Include="web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

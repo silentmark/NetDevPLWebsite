@@ -1,0 +1,24 @@
+﻿html, body {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+footer {
+    color: #666;
+    background: #222;
+    padding: 17px 0 18px 0;
+}
+
+    footer a {
+        color: #999;
+    }
+
+        footer a:hover {
+            color: #efefef;
+        }
