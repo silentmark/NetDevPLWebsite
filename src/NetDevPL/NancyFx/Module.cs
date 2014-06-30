@@ -4,7 +4,7 @@ using System.Reflection;
 namespace NetDevPL.NancyFx
 {
     // cr:mmisztal1980
-    public abstract class ModuleBase : NinjectModule
+    public abstract class Module : NinjectModule
     {
         public abstract string Key { get; }
 

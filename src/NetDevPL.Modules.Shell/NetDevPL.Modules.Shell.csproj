@@ -69,7 +69,6 @@
     <EmbeddedResource Include="fonts\glyphicons-halflings-regular.ttf" />
     <EmbeddedResource Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="packages.config" />
-    <EmbeddedResource Include="Views\Home\Index.cshtml" />
     <EmbeddedResource Include="Views\_Layout.cshtml" />
     <EmbeddedResource Include="Views\_ViewStart.cshtml" />
     <EmbeddedResource Include="Views\_HeadPartial.cshtml" />

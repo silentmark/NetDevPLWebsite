@@ -103,6 +103,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NetDevPL.Modules.Home\NetDevPL.Modules.Home.csproj">
+      <Project>{2f2b8c1f-65d9-478c-8754-d2b0e220abc7}</Project>
+      <Name>NetDevPL.Modules.Home</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NetDevPL.Modules.Shell\NetDevPL.Modules.Shell.csproj">
       <Project>{2abbee92-7002-4a3b-8097-6a9a56fa46ee}</Project>
       <Name>NetDevPL.Modules.Shell</Name>
