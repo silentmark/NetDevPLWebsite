@@ -1,17 +1,15 @@
 ﻿// -------------------------------------------------------------------------------------------------------------------
 // <copyright file="MainModuleTests.cs" project="NetDevPL.Website.Tests" date="2014-06-23 13:29">
-// 
+//
 // </copyright>
 // -------------------------------------------------------------------------------------------------------------------
 
 namespace NetDevPL.Website.Tests
 {
-    using NUnit.Framework;
-
     using Nancy;
     using Nancy.Testing;
-
     using NetDevPL.Website.Modules;
+    using NUnit.Framework;
 
     [TestFixture]
     public class MainModuleTests

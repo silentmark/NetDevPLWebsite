@@ -1,0 +1,16 @@
+﻿@using NetDevPL.Navigation
+<!DOCTYPE html>
+<html>
+    @Html.Partial("_HeadPartial")
+    <body>
+        <div class="wrapper">
+            @Html.Partial("_NavigationPartial", NavigationModel.Instance)
+            <div class="container body-content">
+                @RenderBody()
+            </div>
+        </div>
+        <footer>
+            @Html.Partial("_FooterPartial")
+        </footer>
+    </body>
+</html>
