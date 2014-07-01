@@ -13,7 +13,6 @@ namespace NetDevPL.NancyFx
     ///
     /// Provides logic in order to configure the nancy conventions during the bootstrapper sequence.
     /// </summary>
-    // cr:mmisztal1980
     public class ModuleConventions : Disposable, IModuleConventions
     {
         private readonly ILogger _logger;
@@ -57,6 +56,7 @@ namespace NetDevPL.NancyFx
         {
             if (disposing)
             {
+                StaticContentsConvetions.Clear();
                 _logger.Dispose();
             }
         }

@@ -3,7 +3,6 @@ using System;
 
 namespace NetDevPL.Logging
 {
-    //cr:mmisztal1980
     public class NLogLogger : ILogger
     {
         private Logger _logger;

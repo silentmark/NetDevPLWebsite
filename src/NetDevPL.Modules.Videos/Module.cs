@@ -3,11 +3,9 @@ using NetDevPL.Logging;
 using NetDevPL.Navigation;
 using Ninject;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace NetDevPL.Modules.Videos
 {
-    //cr:mmisztal1980
     public class Module : Ninject.Module
     {
         private ILogger _logger;
@@ -27,11 +25,6 @@ namespace NetDevPL.Modules.Videos
         public override string Key
         {
             get { return "NetDevPL.Modules.Videos"; }
-        }
-
-        public override Assembly DeclaringAssembly
-        {
-            get { return GetType().Assembly; }
         }
 
         private INavigationLink[] _navigationLinks;

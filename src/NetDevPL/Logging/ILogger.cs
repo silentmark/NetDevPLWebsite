@@ -2,7 +2,6 @@
 
 namespace NetDevPL.Logging
 {
-    //cr:mmisztal1980
     public interface ILogger : IDisposable
     {
         void Trace(string message, params object[] args);

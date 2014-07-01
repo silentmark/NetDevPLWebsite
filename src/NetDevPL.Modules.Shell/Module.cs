@@ -5,11 +5,9 @@ using NetDevPL.Navigation;
 using Ninject;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace NetDevPL.Modules.Shell
 {
-    //cr:mmisztal1980
     public class Module : Ninject.Module
     {
         private ILogger _logger;
@@ -17,11 +15,6 @@ namespace NetDevPL.Modules.Shell
         public override string Key
         {
             get { return "NetDevPL.Modules.Shell"; }
-        }
-
-        public override Assembly DeclaringAssembly
-        {
-            get { return GetType().Assembly; }
         }
 
         public override void Load()

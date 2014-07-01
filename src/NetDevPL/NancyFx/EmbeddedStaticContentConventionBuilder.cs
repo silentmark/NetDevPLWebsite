@@ -10,7 +10,6 @@ using System.Text.RegularExpressions;
 
 namespace NetDevPL.NancyFx
 {
-    //cr:mmisztal1980
     /// <summary>
     /// Conventions buildr for embedded content - found on GitHub, no NuGet package (src : Nancy.Embedded)
     /// </summary>

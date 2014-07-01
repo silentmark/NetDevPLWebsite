@@ -22,7 +22,6 @@ using Nancy.Hosting.Aspnet;
 
 namespace NetDevPL.AspNet
 {
-    // cr:mmisztal1980
     public class Bootstrapper : NinjectNancyBootstrapper
     {
         protected override NancyInternalConfiguration InternalConfiguration

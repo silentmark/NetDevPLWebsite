@@ -3,11 +3,9 @@ using NetDevPL.Logging;
 using NetDevPL.Navigation;
 using Ninject;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace NetDevPL.Modules.Home
 {
-    //cr:mmisztal1980
     public class Module : Ninject.Module
     {
         private ILogger _logger;
@@ -15,11 +13,6 @@ namespace NetDevPL.Modules.Home
         public override string Key
         {
             get { return "NetDevPL.Modules.Home"; }
-        }
-
-        public override Assembly DeclaringAssembly
-        {
-            get { return GetType().Assembly; }
         }
 
         public override void Load()

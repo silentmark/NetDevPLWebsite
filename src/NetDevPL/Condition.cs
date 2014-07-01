@@ -2,7 +2,6 @@
 
 namespace NetDevPL
 {
-    //cr:mmisztal1980
     /// <summary>
     /// Very light version of Code Contracts
     /// </summary>

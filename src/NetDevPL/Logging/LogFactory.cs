@@ -4,7 +4,6 @@ using System;
 
 namespace NetDevPL.Logging
 {
-    //cr:mmisztal1980
     public class LogFactory : ILogFactory
     {
         private IKernel _kernel;
