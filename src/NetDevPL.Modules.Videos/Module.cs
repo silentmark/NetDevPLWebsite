@@ -17,6 +17,9 @@ namespace NetDevPL.Modules.Videos
             _logger = Kernel.Get<ILogFactory>().CreateLogger(Key);
             _logger.Info("Loaded");
 
+            var navigationModel = Kernel.Get<INavigationModel>();
+            navigationModel.Add(NavigationLinks);
+
             ResourceViewLocationProvider.RootNamespaces
                 .Add(this.GetType().Assembly, "NetDevPL.Modules.Videos.Views");
         }

@@ -34,6 +34,9 @@ namespace NetDevPL.Modules.Shell
             moduleConventions.AddStaticContentConvention(Key, EmbeddedStaticContentConventionBuilder.AddDirectory("/scripts", DeclaringAssembly, "scripts"));
             moduleConventions.AddStaticContentConvention(Key, EmbeddedStaticContentConventionBuilder.AddDirectory("/fonts", DeclaringAssembly, "fonts"));
 
+            var navigationModel = Kernel.Get<INavigationModel>();
+            navigationModel.Add(NavigationLinks);
+
             ResourceViewLocationProvider.RootNamespaces
                 .Add(this.GetType().Assembly, "NetDevPL.Modules.Shell.Views");
         }

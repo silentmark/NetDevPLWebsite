@@ -2,17 +2,22 @@
 {
     public class NavigationLink : INavigationLink
     {
-        public NavigationLink(int index, string link)
-            : this(index, link, null)
+        public NavigationLink(int index, string link, string caption)
+            : this(index, link, caption, NavbarContentType.Left, null)
         {
-            Index = index;
-            Link = link;
         }
 
-        public NavigationLink(int index, string link, string cssClass)
+        public NavigationLink(int index, string link, string caption, string cssClass)
+            : this(index, link, caption, NavbarContentType.Left, cssClass)
+        {
+        }
+
+        public NavigationLink(int index, string link, string caption, NavbarContentType contentType, string cssClass)
         {
             Index = index;
             Link = link;
+            Caption = caption;
+            ContentType = contentType;
             CssClass = cssClass;
         }
 
@@ -20,6 +25,10 @@
 
         public string Link { get; private set; }
 
+        public string Caption { get; private set; }
+
         public string CssClass { get; private set; }
+
+        public NavbarContentType ContentType { get; private set; }
     }
 }

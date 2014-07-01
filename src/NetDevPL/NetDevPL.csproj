@@ -68,6 +68,7 @@
     <Compile Include="NancyFx\ModuleConventions.cs" />
     <Compile Include="Navigation\INavigationLink.cs" />
     <Compile Include="Navigation\INavigationModel.cs" />
+    <Compile Include="Navigation\NavbarContentType.cs" />
     <Compile Include="Navigation\NavigationLink.cs" />
     <Compile Include="Navigation\NavigationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -27,6 +27,9 @@ namespace NetDevPL.Modules.Home
             _logger = Kernel.Get<ILogFactory>().CreateLogger(Key);
             _logger.Info("Loaded");
 
+            var navigationModel = Kernel.Get<INavigationModel>();
+            navigationModel.Add(NavigationLinks);
+
             ResourceViewLocationProvider.RootNamespaces
                 .Add(this.GetType().Assembly, "NetDevPL.Modules.Home.Views");
         }
@@ -35,7 +38,13 @@ namespace NetDevPL.Modules.Home
 
         public override IEnumerable<INavigationLink> NavigationLinks
         {
-            get { return _navigationLinks ?? new INavigationLink[] { }; }
+            get
+            {
+                return (_navigationLinks = _navigationLinks ?? new INavigationLink[]
+            {
+                new NavigationLink(1, "~/", ".NET Developers Poland", NavbarContentType.Header, "navbar-brand")
+            });
+            }
         }
     }
 }
