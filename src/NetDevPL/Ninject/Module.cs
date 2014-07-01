@@ -3,7 +3,7 @@ using Ninject.Modules;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace NetDevPL.NancyFx
+namespace NetDevPL.Ninject
 {
     // cr:mmisztal1980
     public abstract class Module : NinjectModule

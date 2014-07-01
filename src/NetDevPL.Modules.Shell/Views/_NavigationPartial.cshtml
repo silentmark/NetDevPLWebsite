@@ -19,7 +19,11 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="@Url.Content("~/videos")">Videos</a></li>
+                @foreach (var link in Model.GetLinks(NavbarContentType.Left))
+                {
+                    <li><a href="@Url.Content(link.Link)" class="@link.CssClass">@link.Caption</a></li>
+                }
+                
                 
                 @*<li><a href="#contact">Contact</a></li>*@
                 

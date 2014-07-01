@@ -64,7 +64,7 @@
     <Compile Include="Logging\NLogLogger.cs" />
     <Compile Include="NancyFx\EmbeddedStaticContentConventionBuilder.cs" />
     <Compile Include="NancyFx\IModuleConventions.cs" />
-    <Compile Include="NancyFx\Module.cs" />
+    <Compile Include="Ninject\Module.cs" />
     <Compile Include="NancyFx\ModuleConventions.cs" />
     <Compile Include="Navigation\INavigationLink.cs" />
     <Compile Include="Navigation\INavigationModel.cs" />

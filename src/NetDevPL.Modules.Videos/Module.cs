@@ -8,7 +8,7 @@ using System.Reflection;
 namespace NetDevPL.Modules.Videos
 {
     //cr:mmisztal1980
-    public class Module : NetDevPL.NancyFx.Module
+    public class Module : Ninject.Module
     {
         private ILogger _logger;
 
@@ -21,7 +21,7 @@ namespace NetDevPL.Modules.Videos
             navigationModel.Add(NavigationLinks);
 
             ResourceViewLocationProvider.RootNamespaces
-                .Add(this.GetType().Assembly, "NetDevPL.Modules.Videos.Views");
+                .Add(DeclaringAssembly, "NetDevPL.Modules.Videos.Views");
         }
 
         public override string Key
@@ -42,7 +42,7 @@ namespace NetDevPL.Modules.Videos
             {
                 return _navigationLinks ?? (_navigationLinks = new INavigationLink[]
             {
-                new NavigationLink(10, "~/videos", ""),
+                new NavigationLink(10, "~/videos", "Videos"),
             });
             }
         }

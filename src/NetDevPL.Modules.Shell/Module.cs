@@ -10,7 +10,7 @@ using System.Reflection;
 namespace NetDevPL.Modules.Shell
 {
     //cr:mmisztal1980
-    public class Module : NetDevPL.NancyFx.Module
+    public class Module : Ninject.Module
     {
         private ILogger _logger;
 
