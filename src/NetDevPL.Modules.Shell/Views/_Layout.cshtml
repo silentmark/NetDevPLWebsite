@@ -4,13 +4,13 @@
 }
 <!DOCTYPE html>
 <html>
-<head>
     @Html.Partial("_HeadPartial")
-</head>
     <body>
         <div class="wrapper">
             @Html.Partial("_NavigationPartial", NavigationModel.Instance)
-            @RenderBody()
+            <div class="container body-content">
+                @RenderBody()
+            </div>
         </div>
         <footer>
             @Html.Partial("_FooterPartial")
