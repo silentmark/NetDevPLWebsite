@@ -1,14 +1,13 @@
 ﻿using Nancy;
 using Nancy.Testing;
 using NetDevPL.AspNet;
-using NUnit.Framework;
+using Xunit;
 
 namespace NetDevPL.Modules.Videos.Tests
 {
-    [TestFixture]
     public class WhenUsingHomeModule
     {
-        [Test]
+        [Fact]
         public void ShouldReturnHttpOkForDefaultRoute()
         {
             using (var bootstrapper = new Bootstrapper())
@@ -16,7 +15,7 @@ namespace NetDevPL.Modules.Videos.Tests
                 var browser = new Browser(bootstrapper);
                 var result = browser.Get("/videos", with => with.HttpRequest());
 
-                Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
+                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
             }
         }
     }
