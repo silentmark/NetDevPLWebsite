@@ -227,7 +227,7 @@ $url = 'http://download.mono-project.com/archive/3.2.3/windows-installer/mono-3.
 $silentArgs = '/SILENT' # "/s /S /q /Q /quiet /silent /SILENT /VERYSILENT"
 
 try{
-	#Install-ExeFileFromUrl $silentArgs $url $packageName
+	Install-ExeFileFromUrl $silentArgs $url $packageName
 }
 catch{
 	#just swallow and move next
@@ -238,7 +238,7 @@ $url = 'http://download.mono-project.com/archive/2.10.9/windows-installer/0/mono
 $silentArgs = '/SILENT' # "/s /S /q /Q /quiet /silent /SILENT /VERYSILENT"
 
 try{
-	#Install-ExeFileFromUrl $silentArgs $url $packageName
+	Install-ExeFileFromUrl $silentArgs $url $packageName
 }
 catch{
 	#just swallow and move next
