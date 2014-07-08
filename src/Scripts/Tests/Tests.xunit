@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xunit>
+  <assemblies>
+    <assembly filename="..\..\..\binary\debug\Tests\NetDevPL.Modules.Videos.Tests.dll" shadow-copy="true" />
+    <assembly filename="..\..\..\binary\debug\Tests\NetDevPL.Modules.Home.Tests.dll" shadow-copy="true" />
+  </assemblies>
+</xunit>
